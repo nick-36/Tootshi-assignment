@@ -1,7 +1,7 @@
 import { faArrowRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Select from "react-select";
 import AllProducts from "../../data/products";
@@ -16,17 +16,19 @@ const FilterBar = () => {
   const [cat, setCat] = useState("");
   const [size, setSize] = useState("");
   const [query, setQuery] = useState("");
-  const [unfilteredData, setUnfilteredData] = useState(AllProducts);
+  // const [unfilteredData, setUnfilteredData] = useState(AllProducts);
+  const unFilteredData = AllProducts;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    let result = [...unfilteredData];
+    let result = [...unFilteredData];
 
     result = filterByCategory(result, cat);
     result = filterBySize(result, size);
     result = filterBySearch(result, query);
 
     dispatch(SET_PRODUCTS(result));
+    // eslint-disable-next-line
   }, [size, cat, query, dispatch]);
 
   const handleResetFilters = () => {

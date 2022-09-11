@@ -2,17 +2,12 @@ import {
   faCartShopping,
   faPlus,
   faSubtract,
-  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 
-import { useDispatch, useSelector } from "react-redux";
-import {
-  ADD_CART_ITEM,
-  DELETE_CART_ITEM,
-  UPDATE_QUANTITY,
-} from "../../store/cartSlice";
+import { useDispatch } from "react-redux";
+import { ADD_CART_ITEM, DELETE_CART_ITEM } from "../../store/cartSlice";
 
 const Product = ({ product, cart, setCart }) => {
   const [quantity, setQuantity] = useState(1);
@@ -37,10 +32,6 @@ const Product = ({ product, cart, setCart }) => {
       setQuantity((prev) => (prev -= 1));
     }
   };
-
-  useEffect(() => {
-    dispatch(UPDATE_QUANTITY({ id: product.id, quantity }));
-  }, [quantity, dispatch, product.id]);
 
   return (
     <tr className="product">

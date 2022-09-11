@@ -1,13 +1,12 @@
 import { faPlus, faSubtract, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   DECREASE_QTY,
   DELETE_CART_ITEM,
   GET_TOTAL,
   INCREASE_QTY,
-  UPDATE_QUANTITY,
 } from "../../store/cartSlice";
 import "./CartPage.scss";
 
@@ -21,7 +20,6 @@ const CartProduct = ({ product }) => {
   return (
     <tr>
       <td className="img-cell">
-        {/* <div> */}
         <FontAwesomeIcon
           icon={faTimes}
           onClick={() => dispatch(DELETE_CART_ITEM({ id: product.id }))}
@@ -29,7 +27,6 @@ const CartProduct = ({ product }) => {
         />
         <img src={product.image} alt="productimage" className="product-image" />
         <span className="product-name">{product.name}</span>
-        {/* </div> */}
       </td>
       <td>${product.price}</td>
       <td>
