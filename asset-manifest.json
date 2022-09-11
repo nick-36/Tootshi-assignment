@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tootshi-assignment/static/css/main.dbe2ac9d.css",
+    "main.js": "/tootshi-assignment/static/js/main.685763e2.js",
+    "index.html": "/tootshi-assignment/index.html",
+    "main.dbe2ac9d.css.map": "/tootshi-assignment/static/css/main.dbe2ac9d.css.map",
+    "main.685763e2.js.map": "/tootshi-assignment/static/js/main.685763e2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dbe2ac9d.css",
+    "static/js/main.685763e2.js"
+  ]
+}
