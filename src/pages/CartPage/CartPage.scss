@@ -1,0 +1,140 @@
+@import "../../sass/main.scss";
+.section-cart {
+  .cart-header-container {
+    text-align: center;
+    margin: 2rem;
+    .header-text {
+      font-size: 4rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+
+      color: $color-dark-gray;
+    }
+  }
+
+  .cart-main {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    margin: 0 2rem;
+
+    .cart-left {
+      &-content {
+        margin: 2rem 0;
+        padding: 2rem 0;
+        background-color: $color-white;
+        border: 1px solid $color-light-gray;
+        box-shadow: 0 0.4rem 1rem rgba($color-black, 0.15);
+        &-table {
+          width: 100%;
+          border-collapse: collapse;
+
+          thead {
+            tr {
+              font-size: 1.6rem;
+              border-bottom: 2px solid $color-light-gray;
+              th {
+                text-align: center;
+                font-weight: 500;
+                padding-bottom: 2rem;
+              }
+            }
+          }
+
+          tbody {
+            tr {
+              font-size: 1.4rem;
+
+              td {
+                text-align: center;
+                padding: 1rem 0;
+              }
+
+              & td:nth-child(3) {
+                display: flex;
+                justify-content: center;
+              }
+            }
+
+            & tr:not(:last-child) {
+              border-bottom: 2px solid $color-light-gray;
+            }
+
+            .img-cell {
+              @include align-center;
+
+              margin-left: 4rem;
+
+              gap: 2rem;
+              .product-image {
+                width: 80px;
+                height: 80px;
+                object-fit: cover;
+              }
+            }
+          }
+        }
+      }
+      .icon-remove {
+        font-size: 24px;
+        cursor: pointer;
+      }
+    }
+
+    .cart-right {
+      width: 100%;
+
+      .checkout {
+        padding: 2rem;
+        background-color: $color-white;
+        border: 1px solid $color-light-gray;
+        box-shadow: 0 0.4rem 1rem rgba($color-black, 0.15);
+        width: 70%;
+        margin: 2rem;
+        &-header {
+          font-size: 2rem;
+          font-weight: 400;
+        }
+        &-info {
+          @include align-space-between;
+          font-size: 1.4rem;
+          padding: 1rem 0;
+          color: $color-dark-gray;
+        }
+
+        .total-info {
+          @include align-space-between;
+          font-size: 1.6rem;
+          font-weight: 700;
+          padding: 1rem 0;
+          margin-bottom: 2rem;
+
+          &-price {
+            color: $color-primary;
+          }
+        }
+        .btn-checkout {
+          width: 100%;
+          border-radius: 2rem;
+          background-color: $color-primary;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.quantity-cell {
+  @include align-center;
+  justify-content: space-between;
+  width: 100px;
+  gap: 1rem;
+  border: 1px solid $color-light-gray;
+  border-radius: 10px;
+
+  padding: 1rem;
+
+  .icon-plus,
+  .icon-minus {
+    cursor: pointer;
+  }
+}

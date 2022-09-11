@@ -1,0 +1,41 @@
+@import "../../sass//main.scss";
+
+.product {
+  td {
+    padding: 1rem;
+    font-size: 1.4rem;
+    text-align: left;
+    text-transform: capitalize;
+    border-bottom: 2px solid $color-light-gray;
+
+    .product-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+    .input-quantity {
+      width: 80px;
+      padding: 0.5rem 1rem;
+      border: none;
+      font-size: 1.4rem;
+      border: 2px solid $color-dark-gray;
+      border-radius: 1rem;
+    }
+    .icon-box {
+      text-align: center;
+      width: 60px;
+      padding: 0.5rem;
+      border: none;
+      font-size: 1.4rem;
+      background-color: black;
+      color: #fff;
+    }
+  }
+  .product-select {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 2rem;
+  }
+}

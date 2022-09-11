@@ -1,0 +1,42 @@
+@import "../../sass/main.scss";
+
+.filters-header {
+  padding: 2rem;
+  width: 100%;
+  @include align-space-between;
+
+  .filters-header-left {
+    @include align-center;
+    gap: 1rem;
+
+    .reset-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 1.6rem;
+
+      .icon-reset {
+        cursor: pointer;
+        color: $color-dark-gray;
+        margin-left: 2rem;
+      }
+    }
+  }
+  .filters-header-right {
+    @include align-center;
+    gap: 1rem;
+
+    .input-search {
+      padding: 1rem;
+
+      border: 2px solid $color-light-gray;
+      border-radius: 10px;
+
+      outline: none;
+
+      &::placeholder {
+        font-family: inherit;
+      }
+    }
+  }
+}
