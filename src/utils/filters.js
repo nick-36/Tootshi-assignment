@@ -2,7 +2,7 @@ export const filterBySize = (arr, size) => {
   if (size) {
     const { value } = size;
     return arr.filter((item) => {
-      return item.size.includes(value);
+      return item.size === value;
     });
   } else {
     return arr;

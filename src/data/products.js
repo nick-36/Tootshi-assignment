@@ -7,7 +7,7 @@ const products = [
     instock: true,
     color: "red",
     stock: 15,
-    size: ["XL", "L", "M"],
+    size: "M",
     category: "hoodies",
   },
   {
@@ -19,7 +19,7 @@ const products = [
     instock: true,
     color: "white",
     stock: 10,
-    size: ["XL", "L", "M", "S"],
+    size: "XL",
     category: "hoodies",
   },
   {
@@ -31,7 +31,7 @@ const products = [
     instock: true,
     color: "black",
     stock: 8,
-    size: ["M", "S"],
+    size: "S",
     category: "hoodies",
   },
   {
@@ -43,7 +43,7 @@ const products = [
     instock: true,
     color: "yellow",
     stock: 8,
-    size: ["L", "M", "S"],
+    size: "XL",
     category: "hoodies",
   },
   {
@@ -55,7 +55,7 @@ const products = [
     instock: true,
     color: "black",
     stock: 8,
-    size: ["L", "M", "S"],
+    size: "M",
     category: "shoes",
   },
   {
@@ -67,7 +67,8 @@ const products = [
     instock: true,
     color: "black",
     stock: 8,
-    size: ["L", "M", "S"],
+    size: "S",
+
     category: "shoes",
   },
   {
@@ -79,7 +80,8 @@ const products = [
     instock: true,
     color: "blue",
     stock: 5,
-    size: ["L", "M", "S"],
+    size: "M",
+
     category: "jeans",
   },
   {
@@ -91,7 +93,8 @@ const products = [
     instock: true,
     color: "black",
     stock: 3,
-    size: ["L", "M", "S"],
+    size: "XL",
+
     category: "jeans",
   },
   {
@@ -103,7 +106,8 @@ const products = [
     instock: false,
     color: "white",
     stock: 0,
-    size: ["XL", "L", "M", "S"],
+    size: "L",
+
     category: "shirts",
   },
   {
@@ -115,7 +119,8 @@ const products = [
     instock: true,
     color: "black",
     stock: 18,
-    size: ["M", "S"],
+    size: "L",
+
     category: "shirts",
   },
 ];

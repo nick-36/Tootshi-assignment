@@ -2,6 +2,7 @@ import { faPlus, faSubtract, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import {
   DECREASE_QTY,
   DELETE_CART_ITEM,
@@ -58,6 +59,9 @@ const Cart = () => {
     return (
       <div className="empty-list-container">
         <h1 className="empty-list-text">Cart Is Empty! Do Some Shopping</h1>
+        <Link to="/">
+          <button className="btn">Continue Shopping</button>
+        </Link>
       </div>
     );
   }
@@ -93,14 +97,16 @@ const Cart = () => {
             <h1 className="checkout-header">Cart Total</h1>
             <div className="checkout-info">
               <p className="checkout-info-text">Subtotal</p>
-              <p className="checkout-info-price">$101.00</p>
+              <p className="checkout-info-price">${total}</p>
             </div>
             <hr />
             <div className="total-info">
               <p className="total-info-text">Total</p>
               <p className="total-info-price">${total}</p>
             </div>
-            <button className="btn btn-checkout">Proceed To Checkout</button>
+            <Link to="/success">
+              <button className="btn btn-checkout">Proceed To Checkout</button>
+            </Link>
           </div>
         </div>
       </main>

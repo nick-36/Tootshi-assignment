@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AllProducts from "../../data/products";
 import { SET_PRODUCTS } from "../../store/productsSlice";
@@ -6,8 +6,8 @@ import { Product } from "../index";
 import "./ProductList.scss";
 
 const EmptyList = () => (
-  <div className="empty-list-container">
-    <h1 className="empty-list-text">No Result Found!</h1>
+  <div className="empty-search-container">
+    <h1 className="empty-search-text">No Result Found!</h1>
   </div>
 );
 
@@ -18,6 +18,7 @@ const ProductList = () => {
 
   useEffect(() => {
     dispatch(SET_PRODUCTS(AllProducts));
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -30,6 +31,7 @@ const ProductList = () => {
             <tr>
               <th>Image</th>
               <th>Name</th>
+              <th>Sizes</th>
               <th>Color</th>
               <th>Stock</th>
               <th>Price</th>

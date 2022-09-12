@@ -8,6 +8,12 @@
     text-transform: capitalize;
     border-bottom: 2px solid $color-light-gray;
 
+    .sizes {
+      display: flex;
+
+      gap: 1rem;
+    }
+
     .product-img {
       width: 100px;
       height: 100px;
@@ -37,5 +43,13 @@
     align-items: center;
 
     gap: 2rem;
+  }
+  .in-stock {
+    color: green;
+    font-weight: 700;
+  }
+  .out-stock {
+    color: crimson;
+    font-weight: 700;
   }
 }
