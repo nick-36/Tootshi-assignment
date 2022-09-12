@@ -55,6 +55,10 @@ const CartProduct = ({ product }) => {
 const Cart = () => {
   const { isEmpty, products, total } = useSelector((state) => state.cart);
 
+  const handleCheckOut = () => {
+    window.location.replace("/success");
+  };
+
   if (isEmpty) {
     return (
       <div className="empty-list-container">
@@ -104,9 +108,11 @@ const Cart = () => {
               <p className="total-info-text">Total</p>
               <p className="total-info-price">${total}</p>
             </div>
-            <Link to="/success">
-              <button className="btn btn-checkout">Proceed To Checkout</button>
-            </Link>
+            {/* <Link to="/success"> */}
+            <button onClick={handleCheckOut} className="btn btn-checkout">
+              Proceed To Checkout
+            </button>
+            {/* </Link> */}
           </div>
         </div>
       </main>
