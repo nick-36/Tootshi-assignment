@@ -16,26 +16,46 @@ const FilterBar = () => {
   const [cat, setCat] = useState("");
   const [size, setSize] = useState("");
   const [query, setQuery] = useState("");
-  // const [unfilteredData, setUnfilteredData] = useState(AllProducts);
-  const unFilteredData = AllProducts;
   const dispatch = useDispatch();
+  const unFilteredData = AllProducts;
+  const [filteredResult, setFilteredResults] = useState(unFilteredData);
 
   useEffect(() => {
     let result = [...unFilteredData];
 
     result = filterByCategory(result, cat);
     result = filterBySize(result, size);
-    result = filterBySearch(result, query);
 
+    setFilteredResults(result);
     dispatch(SET_PRODUCTS(result));
+
     // eslint-disable-next-line
-  }, [size, cat, query, dispatch]);
+  }, [size, cat, dispatch]);
 
   const handleResetFilters = () => {
     setCat("");
     setSize("");
     setQuery("");
   };
+
+  const debounceSearch = (cb, delay = 1000) => {
+    let timeout;
+
+    return function (...args) {
+      setQuery(args[0]);
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        cb(args);
+        console.log(args);
+      }, delay);
+    };
+  };
+
+  const effectiveSearch = debounceSearch((args) => {
+    let result = [...filteredResult];
+    let data = filterBySearch(result, query);
+    dispatch(SET_PRODUCTS(data));
+  });
 
   const categoryOptions = [
     { value: "hoodies", label: "Hoodies" },
@@ -78,7 +98,7 @@ const FilterBar = () => {
           placeholder="Search Products..."
           className="input-search"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => effectiveSearch(e.target.value)}
         />
         <Link to="/cart">
           <button className="btn btn-add">Add To Cart</button>

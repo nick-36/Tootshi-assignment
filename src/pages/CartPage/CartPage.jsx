@@ -14,11 +14,7 @@ import "./CartPage.scss";
 
 const CartProduct = ({ product }) => {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.cart);
 
-  useEffect(() => {
-    dispatch(GET_TOTAL());
-  }, [cart, dispatch]);
   return (
     <tr>
       <td className="img-cell">
@@ -57,6 +53,15 @@ const Cart = () => {
   const { isEmpty, products, total } = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+
+  useEffect(() => {
+    dispatch(GET_TOTAL());
+  }, [cart, dispatch]);
+
+  useEffect(() => {
+    console.log();
+  }, []);
 
   const handleCheckOut = () => {
     dispatch(RESET_CART());

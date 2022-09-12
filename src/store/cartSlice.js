@@ -104,6 +104,7 @@ const { reducer, actions } = cartSlice;
 export const {
   ADD_CART_ITEM,
   DELETE_CART_ITEM,
+  UPDATE_QUANTITY,
   INCREASE_QTY,
   DECREASE_QTY,
   GET_TOTAL,
