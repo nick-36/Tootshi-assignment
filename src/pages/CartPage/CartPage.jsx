@@ -2,12 +2,13 @@ import { faPlus, faSubtract, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   DECREASE_QTY,
   DELETE_CART_ITEM,
   GET_TOTAL,
   INCREASE_QTY,
+  RESET_CART,
 } from "../../store/cartSlice";
 import "./CartPage.scss";
 
@@ -54,9 +55,12 @@ const CartProduct = ({ product }) => {
 
 const Cart = () => {
   const { isEmpty, products, total } = useSelector((state) => state.cart);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleCheckOut = () => {
-    window.location.replace("/success");
+    dispatch(RESET_CART());
+    navigate("/success");
   };
 
   if (isEmpty) {
@@ -108,11 +112,10 @@ const Cart = () => {
               <p className="total-info-text">Total</p>
               <p className="total-info-price">${total}</p>
             </div>
-            {/* <Link to="/success"> */}
+
             <button onClick={handleCheckOut} className="btn btn-checkout">
               Proceed To Checkout
             </button>
-            {/* </Link> */}
           </div>
         </div>
       </main>

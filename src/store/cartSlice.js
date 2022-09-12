@@ -1,14 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  products: [],
+
+  isEmpty: true,
+  quantity: null,
+  total: null,
+};
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: {
-    products: [],
+  initialState,
 
-    isEmpty: true,
-    quantity: null,
-    total: null,
-  },
   reducers: {
     ADD_CART_ITEM: (state, action) => {
       const { product, quantity } = action.payload;
@@ -90,6 +93,9 @@ const cartSlice = createSlice({
       state.quantity = quantity;
       state.total = total;
     },
+    RESET_CART: (state) => {
+      return initialState;
+    },
   },
 });
 
@@ -98,9 +104,9 @@ const { reducer, actions } = cartSlice;
 export const {
   ADD_CART_ITEM,
   DELETE_CART_ITEM,
-  UPDATE_QUANTITY,
   INCREASE_QTY,
   DECREASE_QTY,
   GET_TOTAL,
+  RESET_CART,
 } = actions;
 export default reducer;
